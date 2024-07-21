@@ -1,0 +1,16 @@
+G:\BME\Program\Library Management System\Library Management System\bin\Debug\net8.0-windows\Library Management System.exe
+G:\BME\Program\Library Management System\Library Management System\bin\Debug\net8.0-windows\Library Management System.deps.json
+G:\BME\Program\Library Management System\Library Management System\bin\Debug\net8.0-windows\Library Management System.runtimeconfig.json
+G:\BME\Program\Library Management System\Library Management System\bin\Debug\net8.0-windows\Library Management System.dll
+G:\BME\Program\Library Management System\Library Management System\bin\Debug\net8.0-windows\Library Management System.pdb
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library_Management_System.Form1.resources
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.csproj.GenerateResource.cache
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.GeneratedMSBuildEditorConfig.editorconfig
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.AssemblyInfoInputs.cache
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.AssemblyInfo.cs
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.csproj.CoreCompileInputs.cache
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.dll
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\refint\Library Management System.dll
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.pdb
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.genruntimeconfig.cache
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\ref\Library Management System.dll

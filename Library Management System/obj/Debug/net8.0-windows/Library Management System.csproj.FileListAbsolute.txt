@@ -3,12 +3,16 @@ G:\BME\Program\Library Management System\Library Management System\bin\Debug\net
 G:\BME\Program\Library Management System\Library Management System\bin\Debug\net8.0-windows\Library Management System.runtimeconfig.json
 G:\BME\Program\Library Management System\Library Management System\bin\Debug\net8.0-windows\Library Management System.dll
 G:\BME\Program\Library Management System\Library Management System\bin\Debug\net8.0-windows\Library Management System.pdb
-G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library_Management_System.Form1.resources
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library_Management_System.CreateNewBorrow.resources
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library_Management_System.View.HandleBorrows.resources
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library_Management_System.View.LibraryApp.resources
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library_Management_System.SearchBook.resources
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.csproj.GenerateResource.cache
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.GeneratedMSBuildEditorConfig.editorconfig
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.AssemblyInfoInputs.cache
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.AssemblyInfo.cs
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.csproj.CoreCompileInputs.cache
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.sourcelink.json
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.dll
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\refint\Library Management System.dll
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net8.0-windows\Library Management System.pdb

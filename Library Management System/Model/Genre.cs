@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Model
 {
-    internal enum Genre
+    public enum Genre
     {
         Horror,
         Fantasy,

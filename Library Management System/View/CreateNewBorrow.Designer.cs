@@ -54,6 +54,7 @@
             saveBorrows.TabIndex = 0;
             saveBorrows.Text = "Save";
             saveBorrows.UseVisualStyleBackColor = false;
+            saveBorrows.Click += saveBorrows_Click;
             // 
             // durationOfBorrowLabel
             // 
@@ -91,6 +92,7 @@
             addNewBook.TabIndex = 11;
             addNewBook.Text = "New Book";
             addNewBook.UseVisualStyleBackColor = true;
+            addNewBook.Click += addNewBook_Click;
             // 
             // borrowedBooksLabel
             // 
@@ -173,6 +175,7 @@
             cancel.TabIndex = 12;
             cancel.Text = "Cancel";
             cancel.UseVisualStyleBackColor = true;
+            cancel.Click += cancel_Click;
             // 
             // CreateNewBorrow
             // 

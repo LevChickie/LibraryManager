@@ -1,3 +1,6 @@
+using Library_Management_System.Controller;
+using Library_Management_System.View;
+
 namespace Library_Management_System
 {
     internal static class Program
@@ -11,7 +14,8 @@ namespace Library_Management_System
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new SearchBook());
+            LibraryController libraryController = new LibraryController();
+            Application.Run(new LibraryApp(libraryController));
         }
     }
 }

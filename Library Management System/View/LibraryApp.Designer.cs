@@ -28,12 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "LibraryApp";
+            newBorrow = new Button();
+            activeBorrows = new Button();
+            searchLibrary = new Button();
+            activeVisitors = new Button();
+            addMewVisitor = new Button();
+            SuspendLayout();
+            // 
+            // newBorrow
+            // 
+            newBorrow.Location = new Point(258, 147);
+            newBorrow.Name = "newBorrow";
+            newBorrow.Size = new Size(151, 37);
+            newBorrow.TabIndex = 0;
+            newBorrow.Text = "New Borrow";
+            newBorrow.UseVisualStyleBackColor = true;
+            newBorrow.Click += createNewBorrow;
+            // 
+            // activeBorrows
+            // 
+            activeBorrows.Location = new Point(258, 68);
+            activeBorrows.Name = "activeBorrows";
+            activeBorrows.Size = new Size(151, 36);
+            activeBorrows.TabIndex = 1;
+            activeBorrows.Text = "Active Borrows";
+            activeBorrows.UseVisualStyleBackColor = true;
+            activeBorrows.Click += openActiveBorrows;
+            // 
+            // searchLibrary
+            // 
+            searchLibrary.Location = new Point(42, 68);
+            searchLibrary.Name = "searchLibrary";
+            searchLibrary.Size = new Size(151, 36);
+            searchLibrary.TabIndex = 2;
+            searchLibrary.Text = "Search Library";
+            searchLibrary.UseVisualStyleBackColor = true;
+            searchLibrary.Click += searchLibraryBooks;
+            // 
+            // activeVisitors
+            // 
+            activeVisitors.Location = new Point(481, 147);
+            activeVisitors.Name = "activeVisitors";
+            activeVisitors.Size = new Size(127, 37);
+            activeVisitors.TabIndex = 3;
+            activeVisitors.Text = "Register Visitor";
+            activeVisitors.UseVisualStyleBackColor = true;
+            activeVisitors.Click += activeVisitors_Click;
+            // 
+            // addMewVisitor
+            // 
+            addMewVisitor.Location = new Point(481, 68);
+            addMewVisitor.Name = "addMewVisitor";
+            addMewVisitor.Size = new Size(127, 36);
+            addMewVisitor.TabIndex = 4;
+            addMewVisitor.Text = "Active Visitors";
+            addMewVisitor.UseVisualStyleBackColor = true;
+            // 
+            // LibraryApp
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(addMewVisitor);
+            Controls.Add(activeVisitors);
+            Controls.Add(searchLibrary);
+            Controls.Add(activeBorrows);
+            Controls.Add(newBorrow);
+            Name = "LibraryApp";
+            Text = "LibraryApp";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button newBorrow;
+        private Button activeBorrows;
+        private Button searchLibrary;
+        private Button activeVisitors;
+        private Button addMewVisitor;
     }
 }

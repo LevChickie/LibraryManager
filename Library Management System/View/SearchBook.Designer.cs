@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            back = new Button();
+            listView1 = new ListView();
+            search = new Button();
             label4 = new Label();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
@@ -36,16 +39,16 @@
             comboBox1 = new ComboBox();
             label2 = new Label();
             label1 = new Label();
-            button1 = new Button();
-            listView1 = new ListView();
+            addToBorrows = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.HighlightText;
+            panel1.Controls.Add(back);
             panel1.Controls.Add(listView1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(search);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(textBox2);
             panel1.Controls.Add(textBox1);
@@ -55,8 +58,35 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(77, 37);
             panel1.Name = "panel1";
-            panel1.Size = new Size(632, 306);
+            panel1.Size = new Size(632, 345);
             panel1.TabIndex = 0;
+            // 
+            // back
+            // 
+            back.Location = new Point(40, 285);
+            back.Name = "back";
+            back.Size = new Size(94, 49);
+            back.TabIndex = 9;
+            back.Text = "Back";
+            back.UseVisualStyleBackColor = true;
+            back.Click += back_Click;
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(366, 57);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(215, 222);
+            listView1.TabIndex = 8;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // search
+            // 
+            search.Location = new Point(166, 191);
+            search.Name = "search";
+            search.Size = new Size(94, 29);
+            search.TabIndex = 7;
+            search.Text = "Search";
+            search.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -117,22 +147,15 @@
             label1.Text = "Title";
             label1.Click += label1_Click;
             // 
-            // button1
+            // addToBorrows
             // 
-            button1.Location = new Point(176, 191);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 7;
-            button1.Text = "Search";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(366, 57);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(215, 222);
-            listView1.TabIndex = 8;
-            listView1.UseCompatibleStateImageBehavior = false;
+            addToBorrows.Location = new Point(498, 322);
+            addToBorrows.Name = "addToBorrows";
+            addToBorrows.Size = new Size(94, 49);
+            addToBorrows.TabIndex = 1;
+            addToBorrows.Text = "Check book out";
+            addToBorrows.UseVisualStyleBackColor = true;
+            addToBorrows.Click += addToBorrows_Click;
             // 
             // SearchBook
             // 
@@ -140,6 +163,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.MenuHighlight;
             ClientSize = new Size(800, 450);
+            Controls.Add(addToBorrows);
             Controls.Add(panel1);
             Name = "SearchBook";
             Text = "Form1";
@@ -159,6 +183,8 @@
         private Label label3;
         private ComboBox comboBox1;
         private ListView listView1;
-        private Button button1;
+        private Button search;
+        private Button addToBorrows;
+        private Button back;
     }
 }

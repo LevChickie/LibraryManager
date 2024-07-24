@@ -10,8 +10,9 @@ namespace Library_Management_System
 {
     public class Author : Person
     {
-        private int authorId;
-        public int AuthorId
+
+        private Guid authorId;
+        public Guid AuthorId
         {
             get { return authorId; }
             set

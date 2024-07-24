@@ -42,6 +42,8 @@
             firstNameLabel = new Label();
             durationOfBorrow = new TextBox();
             cancel = new Button();
+            birthdayPicker = new DateTimePicker();
+            birthdayLabel = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,6 +70,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
+            panel1.Controls.Add(birthdayLabel);
+            panel1.Controls.Add(birthdayPicker);
             panel1.Controls.Add(addNewBook);
             panel1.Controls.Add(borrowedBooksLabel);
             panel1.Controls.Add(borrowedBooks);
@@ -113,15 +117,15 @@
             // 
             // visitorId
             // 
-            visitorId.Location = new Point(118, 195);
+            visitorId.Location = new Point(118, 166);
             visitorId.Name = "visitorId";
-            visitorId.Size = new Size(125, 27);
+            visitorId.Size = new Size(235, 27);
             visitorId.TabIndex = 8;
             // 
             // visitorIdLabel
             // 
             visitorIdLabel.AutoSize = true;
-            visitorIdLabel.Location = new Point(30, 198);
+            visitorIdLabel.Location = new Point(30, 169);
             visitorIdLabel.Name = "visitorIdLabel";
             visitorIdLabel.Size = new Size(24, 20);
             visitorIdLabel.TabIndex = 7;
@@ -129,15 +133,15 @@
             // 
             // lastName
             // 
-            lastName.Location = new Point(118, 160);
+            lastName.Location = new Point(118, 131);
             lastName.Name = "lastName";
-            lastName.Size = new Size(125, 27);
+            lastName.Size = new Size(235, 27);
             lastName.TabIndex = 6;
             // 
             // lastNameLabel
             // 
             lastNameLabel.AutoSize = true;
-            lastNameLabel.Location = new Point(30, 163);
+            lastNameLabel.Location = new Point(30, 134);
             lastNameLabel.Name = "lastNameLabel";
             lastNameLabel.Size = new Size(79, 20);
             lastNameLabel.TabIndex = 5;
@@ -146,15 +150,15 @@
             // firstName
             // 
             firstName.BackColor = SystemColors.HighlightText;
-            firstName.Location = new Point(118, 127);
+            firstName.Location = new Point(118, 98);
             firstName.Name = "firstName";
-            firstName.Size = new Size(125, 27);
+            firstName.Size = new Size(235, 27);
             firstName.TabIndex = 4;
             // 
             // firstNameLabel
             // 
             firstNameLabel.AutoSize = true;
-            firstNameLabel.Location = new Point(30, 130);
+            firstNameLabel.Location = new Point(30, 101);
             firstNameLabel.Name = "firstNameLabel";
             firstNameLabel.Size = new Size(80, 20);
             firstNameLabel.TabIndex = 3;
@@ -164,7 +168,7 @@
             // 
             durationOfBorrow.Location = new Point(118, 232);
             durationOfBorrow.Name = "durationOfBorrow";
-            durationOfBorrow.Size = new Size(125, 27);
+            durationOfBorrow.Size = new Size(235, 27);
             durationOfBorrow.TabIndex = 2;
             // 
             // cancel
@@ -176,6 +180,22 @@
             cancel.Text = "Cancel";
             cancel.UseVisualStyleBackColor = true;
             cancel.Click += cancel_Click;
+            // 
+            // birthdayPicker
+            // 
+            birthdayPicker.Location = new Point(118, 199);
+            birthdayPicker.Name = "birthdayPicker";
+            birthdayPicker.Size = new Size(235, 27);
+            birthdayPicker.TabIndex = 12;
+            // 
+            // birthdayLabel
+            // 
+            birthdayLabel.AutoSize = true;
+            birthdayLabel.Location = new Point(31, 205);
+            birthdayLabel.Name = "birthdayLabel";
+            birthdayLabel.Size = new Size(67, 20);
+            birthdayLabel.TabIndex = 13;
+            birthdayLabel.Text = "Birthday:";
             // 
             // CreateNewBorrow
             // 
@@ -209,5 +229,7 @@
         private Label visitorIdLabel;
         private Button addNewBook;
         private Button cancel;
+        private Label birthdayLabel;
+        private DateTimePicker birthdayPicker;
     }
 }

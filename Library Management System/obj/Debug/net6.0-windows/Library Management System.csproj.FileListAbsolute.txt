@@ -20,3 +20,4 @@ G:\BME\Program\Library Management System\Library Management System\obj\Debug\net
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net6.0-windows\ref\Library Management System.dll
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net6.0-windows\Library_Management_System.View.AddNewVisitor.resources
 G:\BME\Program\Library Management System\Library Management System\obj\Debug\net6.0-windows\Library_Management_System.View.HandleVisitors.resources
+G:\BME\Program\Library Management System\Library Management System\obj\Debug\net6.0-windows\Library_Management_System.View.AddNewBook.resources

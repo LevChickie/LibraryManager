@@ -30,13 +30,13 @@
         {
             panel1 = new Panel();
             back = new Button();
-            listView1 = new ListView();
+            bookSearchList = new ListView();
             search = new Button();
             label4 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            authorName = new TextBox();
+            titleText = new TextBox();
             label3 = new Label();
-            comboBox1 = new ComboBox();
+            genrePicker = new ComboBox();
             label2 = new Label();
             label1 = new Label();
             addToBorrows = new Button();
@@ -47,13 +47,13 @@
             // 
             panel1.BackColor = SystemColors.HighlightText;
             panel1.Controls.Add(back);
-            panel1.Controls.Add(listView1);
+            panel1.Controls.Add(bookSearchList);
             panel1.Controls.Add(search);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(authorName);
+            panel1.Controls.Add(titleText);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(genrePicker);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(77, 37);
@@ -71,13 +71,14 @@
             back.UseVisualStyleBackColor = true;
             back.Click += back_Click;
             // 
-            // listView1
+            // bookSearchList
             // 
-            listView1.Location = new Point(366, 57);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(215, 222);
-            listView1.TabIndex = 8;
-            listView1.UseCompatibleStateImageBehavior = false;
+            bookSearchList.Location = new Point(366, 57);
+            bookSearchList.Name = "bookSearchList";
+            bookSearchList.Size = new Size(215, 222);
+            bookSearchList.TabIndex = 8;
+            bookSearchList.UseCompatibleStateImageBehavior = false;
+            bookSearchList.SelectedIndexChanged += bookSearchList_SelectedIndexChanged;
             // 
             // search
             // 
@@ -87,6 +88,7 @@
             search.TabIndex = 7;
             search.Text = "Search";
             search.UseVisualStyleBackColor = true;
+            search.Click += search_Click;
             // 
             // label4
             // 
@@ -97,19 +99,19 @@
             label4.TabIndex = 6;
             label4.Text = "Search for new book";
             // 
-            // textBox2
+            // authorName
             // 
-            textBox2.Location = new Point(147, 101);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(151, 27);
-            textBox2.TabIndex = 5;
+            authorName.Location = new Point(147, 101);
+            authorName.Name = "authorName";
+            authorName.Size = new Size(151, 27);
+            authorName.TabIndex = 5;
             // 
-            // textBox1
+            // titleText
             // 
-            textBox1.Location = new Point(147, 57);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(151, 27);
-            textBox1.TabIndex = 4;
+            titleText.Location = new Point(147, 57);
+            titleText.Name = "titleText";
+            titleText.Size = new Size(151, 27);
+            titleText.TabIndex = 4;
             // 
             // label3
             // 
@@ -120,13 +122,13 @@
             label3.TabIndex = 3;
             label3.Text = "Genre";
             // 
-            // comboBox1
+            // genrePicker
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(147, 141);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 2;
+            genrePicker.FormattingEnabled = true;
+            genrePicker.Location = new Point(147, 141);
+            genrePicker.Name = "genrePicker";
+            genrePicker.Size = new Size(151, 28);
+            genrePicker.TabIndex = 2;
             // 
             // label2
             // 
@@ -145,7 +147,6 @@
             label1.Size = new Size(38, 20);
             label1.TabIndex = 0;
             label1.Text = "Title";
-            label1.Click += label1_Click;
             // 
             // addToBorrows
             // 
@@ -178,11 +179,11 @@
         private Label label2;
         private Label label1;
         private Label label4;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox authorName;
+        private TextBox titleText;
         private Label label3;
-        private ComboBox comboBox1;
-        private ListView listView1;
+        private ComboBox genrePicker;
+        private ListView bookSearchList;
         private Button search;
         private Button addToBorrows;
         private Button back;

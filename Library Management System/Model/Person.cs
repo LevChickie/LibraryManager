@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System
 {
-    public class Person
+    public  class Person
     {
         private string firstName;
         public string FirstName { get { return firstName; } set { firstName = value; } }

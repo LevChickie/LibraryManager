@@ -53,5 +53,19 @@ namespace Library_Management_System.View
             navigateNext.Show();
             this.Hide();
         }
+
+        private void addNewBook_Click(object sender, EventArgs e)
+        {
+            navigateNext = new AddNewBook(libraryController);
+            navigateNext.Show();
+            this.Hide();
+        }
+
+        private void addMewVisitor_Click(object sender, EventArgs e)
+        {
+            navigateNext = new HandleVisitors(libraryController);
+            navigateNext.Show();
+            this.Hide();
+        }
     }
 }

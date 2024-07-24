@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,8 @@ namespace Library_Management_System
 {
     public class Visitor : Person
     {
-        private int visitorId;
-        public int VisitorId
+        private Guid visitorId;
+        public Guid VisitorId
         {
             get { return visitorId; }
             set { visitorId = value; }
@@ -26,6 +27,19 @@ namespace Library_Management_System
         {
             get { return borrowConnectedToVisitor; }
             set { borrowConnectedToVisitor = value; }
+        }
+
+        public string[] GetString()
+        {
+            string[] resultString = new string[4];
+            resultString[0] = FirstName;
+            resultString[1] = MiddleName;
+            resultString[2] = LastName;
+            resultString[3] = VisitorId.ToString();
+            //resultString[4] = subscribedUntil.ToString(new CultureInfo("de-DE"));
+            //resultString[5] = BorrowConnectedToVisitor.Count.ToString();
+
+            return resultString;
         }
     }
 }

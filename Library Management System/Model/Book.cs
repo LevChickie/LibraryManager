@@ -58,5 +58,16 @@ namespace Library_Management_System
                 }
             }
         }
+
+        public string[] GetString()
+        {
+            string[] resultString = new string[2];
+            resultString[0] = Title;
+            resultString[1] = Author.FirstName + " " + Author.LastName;
+            //resultString[4] = subscribedUntil.ToString(new CultureInfo("de-DE"));
+            //resultString[5] = BorrowConnectedToVisitor.Count.ToString();
+
+            return resultString;
+        }
     }
 }

@@ -28,35 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
-            listView1 = new ListView();
+            borrowList = new ListView();
             back = new Button();
             newBorrow = new Button();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // borrowList
             // 
-            tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.1554756F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 67.84452F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 166F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 93F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
-            tableLayoutPanel1.Location = new Point(51, 250);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(693, 125);
-            tableLayoutPanel1.TabIndex = 0;
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(51, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(355, 232);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
+            borrowList.Location = new Point(51, 12);
+            borrowList.Name = "borrowList";
+            borrowList.Size = new Size(693, 391);
+            borrowList.TabIndex = 1;
+            borrowList.UseCompatibleStateImageBehavior = false;
+            borrowList.SelectedIndexChanged += borrowList_SelectedIndexChanged;
             // 
             // back
             // 
@@ -85,17 +69,14 @@
             ClientSize = new Size(800, 450);
             Controls.Add(newBorrow);
             Controls.Add(back);
-            Controls.Add(listView1);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(borrowList);
             Name = "HandleBorrows";
             Text = "HandleBorrows";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private TableLayoutPanel tableLayoutPanel1;
-        private ListView listView1;
+        private ListView borrowList;
         private Button back;
         private Button newBorrow;
     }

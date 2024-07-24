@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            middleNameText = new TextBox();
+            middleNameLabel = new Label();
+            saveNewVisitor = new Button();
+            cancelButton = new Button();
             titleChooser = new ComboBox();
             firstNameText = new TextBox();
             lastNameText = new TextBox();
@@ -38,13 +42,13 @@
             lastNameLabel = new Label();
             firstNameLabel = new Label();
             titlePage = new Label();
-            cancelButton = new Button();
-            saveNewVisitor = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(middleNameText);
+            panel1.Controls.Add(middleNameLabel);
             panel1.Controls.Add(saveNewVisitor);
             panel1.Controls.Add(cancelButton);
             panel1.Controls.Add(titleChooser);
@@ -61,31 +65,68 @@
             panel1.Size = new Size(618, 383);
             panel1.TabIndex = 0;
             // 
+            // middleNameText
+            // 
+            middleNameText.Location = new Point(181, 150);
+            middleNameText.Name = "middleNameText";
+            middleNameText.Size = new Size(250, 27);
+            middleNameText.TabIndex = 12;
+            middleNameText.TextChanged += middleNameText_TextChanged;
+            // 
+            // middleNameLabel
+            // 
+            middleNameLabel.AutoSize = true;
+            middleNameLabel.Location = new Point(25, 153);
+            middleNameLabel.Name = "middleNameLabel";
+            middleNameLabel.Size = new Size(103, 20);
+            middleNameLabel.TabIndex = 11;
+            middleNameLabel.Text = "Middle Name:";
+            // 
+            // saveNewVisitor
+            // 
+            saveNewVisitor.Location = new Point(469, 315);
+            saveNewVisitor.Name = "saveNewVisitor";
+            saveNewVisitor.Size = new Size(94, 29);
+            saveNewVisitor.TabIndex = 10;
+            saveNewVisitor.Text = "Save";
+            saveNewVisitor.UseVisualStyleBackColor = true;
+            saveNewVisitor.Click += saveNewVisitor_Click;
+            // 
+            // cancelButton
+            // 
+            cancelButton.Location = new Point(50, 315);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(94, 29);
+            cancelButton.TabIndex = 9;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click;
+            // 
             // titleChooser
             // 
             titleChooser.FormattingEnabled = true;
-            titleChooser.Location = new Point(117, 67);
+            titleChooser.Location = new Point(181, 64);
             titleChooser.Name = "titleChooser";
             titleChooser.Size = new Size(250, 28);
             titleChooser.TabIndex = 8;
             // 
             // firstNameText
             // 
-            firstNameText.Location = new Point(117, 101);
+            firstNameText.Location = new Point(181, 117);
             firstNameText.Name = "firstNameText";
             firstNameText.Size = new Size(250, 27);
             firstNameText.TabIndex = 7;
             // 
             // lastNameText
             // 
-            lastNameText.Location = new Point(117, 134);
+            lastNameText.Location = new Point(181, 183);
             lastNameText.Name = "lastNameText";
             lastNameText.Size = new Size(250, 27);
             lastNameText.TabIndex = 6;
             // 
             // birthdayDatePicker
             // 
-            birthdayDatePicker.Location = new Point(117, 176);
+            birthdayDatePicker.Location = new Point(181, 225);
             birthdayDatePicker.Name = "birthdayDatePicker";
             birthdayDatePicker.Size = new Size(250, 27);
             birthdayDatePicker.TabIndex = 5;
@@ -93,7 +134,7 @@
             // birthdayDate
             // 
             birthdayDate.AutoSize = true;
-            birthdayDate.Location = new Point(25, 181);
+            birthdayDate.Location = new Point(25, 232);
             birthdayDate.Name = "birthdayDate";
             birthdayDate.Size = new Size(71, 20);
             birthdayDate.TabIndex = 4;
@@ -111,7 +152,7 @@
             // lastNameLabel
             // 
             lastNameLabel.AutoSize = true;
-            lastNameLabel.Location = new Point(25, 134);
+            lastNameLabel.Location = new Point(25, 185);
             lastNameLabel.Name = "lastNameLabel";
             lastNameLabel.Size = new Size(82, 20);
             lastNameLabel.TabIndex = 2;
@@ -120,7 +161,7 @@
             // firstNameLabel
             // 
             firstNameLabel.AutoSize = true;
-            firstNameLabel.Location = new Point(25, 100);
+            firstNameLabel.Location = new Point(25, 118);
             firstNameLabel.Name = "firstNameLabel";
             firstNameLabel.Size = new Size(83, 20);
             firstNameLabel.TabIndex = 1;
@@ -134,26 +175,6 @@
             titlePage.Size = new Size(114, 20);
             titlePage.TabIndex = 0;
             titlePage.Text = "Add new Visitor";
-            // 
-            // cancelButton
-            // 
-            cancelButton.Location = new Point(50, 315);
-            cancelButton.Name = "cancelButton";
-            cancelButton.Size = new Size(94, 29);
-            cancelButton.TabIndex = 9;
-            cancelButton.Text = "Cancel";
-            cancelButton.UseVisualStyleBackColor = true;
-            cancelButton.Click += cancelButton_Click;
-            // 
-            // saveNewVisitor
-            // 
-            saveNewVisitor.Location = new Point(469, 315);
-            saveNewVisitor.Name = "saveNewVisitor";
-            saveNewVisitor.Size = new Size(94, 29);
-            saveNewVisitor.TabIndex = 10;
-            saveNewVisitor.Text = "Save";
-            saveNewVisitor.UseVisualStyleBackColor = true;
-            saveNewVisitor.Click += saveNewVisitor_Click;
             // 
             // AddNewVisitor
             // 
@@ -182,5 +203,7 @@
         private DateTimePicker birthdayDatePicker;
         private Button saveNewVisitor;
         private Button cancelButton;
+        private Label middleNameLabel;
+        private TextBox middleNameText;
     }
 }

@@ -33,6 +33,7 @@
             searchLibrary = new Button();
             activeVisitors = new Button();
             addMewVisitor = new Button();
+            addNewBook = new Button();
             SuspendLayout();
             // 
             // newBorrow
@@ -57,7 +58,7 @@
             // 
             // searchLibrary
             // 
-            searchLibrary.Location = new Point(42, 68);
+            searchLibrary.Location = new Point(44, 68);
             searchLibrary.Name = "searchLibrary";
             searchLibrary.Size = new Size(151, 36);
             searchLibrary.TabIndex = 2;
@@ -83,12 +84,24 @@
             addMewVisitor.TabIndex = 4;
             addMewVisitor.Text = "Active Visitors";
             addMewVisitor.UseVisualStyleBackColor = true;
+            addMewVisitor.Click += addMewVisitor_Click;
+            // 
+            // addNewBook
+            // 
+            addNewBook.Location = new Point(44, 147);
+            addNewBook.Name = "addNewBook";
+            addNewBook.Size = new Size(151, 37);
+            addNewBook.TabIndex = 5;
+            addNewBook.Text = "New Book";
+            addNewBook.UseVisualStyleBackColor = true;
+            addNewBook.Click += addNewBook_Click;
             // 
             // LibraryApp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(addNewBook);
             Controls.Add(addMewVisitor);
             Controls.Add(activeVisitors);
             Controls.Add(searchLibrary);
@@ -106,5 +119,6 @@
         private Button searchLibrary;
         private Button activeVisitors;
         private Button addMewVisitor;
+        private Button addNewBook;
     }
 }

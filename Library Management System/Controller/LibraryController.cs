@@ -18,5 +18,44 @@ namespace Library_Management_System.Controller
         {
             library.AddNewVisitor(visitor);
         }
+
+        public void AddNewBorrow(BorrowDetails borrow)
+        {
+            library.AddNewBorrow(borrow);
+        }
+
+        public List<BorrowDetails> GetBorrowDetails()
+        {
+            return library.BorrowList;
+        }
+
+        public List<Visitor> GetVisitors()
+        {
+            return library.VisitorList;
+        }
+
+        public List<Author> GetAuthors()
+        {
+            return library.AuthorList;
+        }
+
+        public void AddNewAuthor (Author author)
+        {
+            library.AuthorList.Add(author);
+        }
+
+        public List<Book> GetBooks()
+        {
+            return library.BookList;
+        }
+
+        public Book GetBookByTitle(string title)
+        {
+            return library.GetBookByTitle(title);
+        }
+        public void AddNewBook(Book book)
+        {
+            library.BookList.Add(book);
+        }
     }
 }

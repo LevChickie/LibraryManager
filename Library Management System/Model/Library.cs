@@ -37,12 +37,20 @@ namespace Library_Management_System
         {
 
         }
-        public void AddNewBook()
+        public void AddNewBook(Book book)
         {
-
+            storedBooks.Add(book); 
         }
-        public void AddNewBorrow()
+
+        public Book GetBookByTitle(string title)
         {
+            return BookList.Find(x => x.Title == title);
+        }
+
+        public void AddNewBorrow(BorrowDetails borrowDetails)
+        {
+            borrowList.Add(borrowDetails);
+            Console.Write("Size of Visitors: " + borrowList.Count);
 
         }
     }

@@ -4,6 +4,9 @@
     <Compile Update="View\AddNewBook.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\AddNewDVD.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\AddNewVisitor.cs">
       <SubType>Form</SubType>
     </Compile>

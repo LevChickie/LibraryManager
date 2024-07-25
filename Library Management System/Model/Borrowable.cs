@@ -44,6 +44,26 @@ namespace Library_Management_System
                 }
             }
         }
+        private int publicationYear;
+        public int PublicationYear
+        {
+            get { return publicationYear; }
+            set { publicationYear = value; }
+        }
+        private Author author;
+        public Author Author
+        {
+            get { return author; }
+            set
+            {
+                if (author != value)
+                {
+                    author = value;
+                    //OnPropertyChanged("Data");
+                }
+            }
+        }
+
         private BorrowableTypes type;
 
         public BorrowableTypes Type
@@ -86,7 +106,7 @@ namespace Library_Management_System
         {
             string[] resultString = new string[2];
             resultString[0] = Title;
-            resultString[1] = "";
+            resultString[1] = Author.FirstName + " " + Author.LastName;
 
 
             return resultString;

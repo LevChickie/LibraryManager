@@ -12,15 +12,7 @@ namespace Library_Management_System
     {
 
 
-        private Author author;
-        public Author Author { get { return author; } set {
-                if (author != value)
-                {
-                    author = value;
-                    //OnPropertyChanged("Data");
-                }
-            } }
-        
+
         private Genre genre;
         public Genre Genre
         {
@@ -34,11 +26,7 @@ namespace Library_Management_System
                 }
             }
         }
-        private int publicationYear;
-        public int PublicationYear
-        {
-            get { return publicationYear;  } set { publicationYear = value; }
-        }
+        
         private int pageCount;
         public int PageCount
         {

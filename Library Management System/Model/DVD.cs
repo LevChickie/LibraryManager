@@ -9,9 +9,18 @@ namespace Library_Management_System.Model
     public class DVD : Borrowable
     {
         private int runtime;
+        public int Runtime
+        {
+            get { return runtime; }
+            set { runtime = value; } 
+        }
         //private Director / Author? director;
         private int publicationYear;
-
+        public int PublicationYear
+        {
+            get { return publicationYear; }
+            set { publicationYear = value; }
+        }
         public string[] GetString()
         {
             string[] resultString = new string[2];
@@ -21,5 +30,6 @@ namespace Library_Management_System.Model
 
             return resultString;
         }
+
     }
 }

@@ -34,6 +34,7 @@
             returnBorrowable = new Button();
             activeVisitors = new Button();
             addNewBook = new Button();
+            addNewDVD = new Button();
             SuspendLayout();
             // 
             // newBorrow
@@ -96,11 +97,22 @@
             addNewBook.UseVisualStyleBackColor = true;
             addNewBook.Click += addNewBook_Click;
             // 
+            // addNewDVD
+            // 
+            addNewDVD.Location = new Point(44, 211);
+            addNewDVD.Name = "addNewDVD";
+            addNewDVD.Size = new Size(151, 37);
+            addNewDVD.TabIndex = 6;
+            addNewDVD.Text = "New DVD";
+            addNewDVD.UseVisualStyleBackColor = true;
+            addNewDVD.Click += addNewDVD_Click;
+            // 
             // LibraryApp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(addNewDVD);
             Controls.Add(addNewBook);
             Controls.Add(activeVisitors);
             Controls.Add(returnBorrowable);
@@ -120,5 +132,6 @@
         private Button returnBorrowable;
         private Button activeVisitors;
         private Button addNewBook;
+        private Button addNewDVD;
     }
 }

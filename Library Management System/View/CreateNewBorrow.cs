@@ -34,9 +34,9 @@ namespace Library_Management_System
             this.borrowedBooks.Columns.Add("Title");
             this.borrowedBooks.Columns.Add("Author");
 
-            foreach (Book book in items)
+            foreach (Borrowable item in items)
             {
-                this.borrowedBooks.Items.Add(new ListViewItem(book.GetString()));
+                this.borrowedBooks.Items.Add(new ListViewItem(item.GetString()));
             }
         }
         private void addNewBook_Click(object sender, EventArgs e)

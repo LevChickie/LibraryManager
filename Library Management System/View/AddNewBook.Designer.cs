@@ -48,6 +48,8 @@
             label5 = new Label();
             SaveButton = new Button();
             CancelButton = new Button();
+            textBox1 = new TextBox();
+            label6 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -64,7 +66,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(452, 107);
             label2.Name = "label2";
-            label2.Size = new Size(125, 20);
+            label2.Size = new Size(122, 20);
             label2.TabIndex = 1;
             label2.Text = "Book Information";
             // 
@@ -186,7 +188,7 @@
             // 
             // pageCount
             // 
-            pageCount.Location = new Point(538, 228);
+            pageCount.Location = new Point(538, 250);
             pageCount.Name = "pageCount";
             pageCount.Size = new Size(250, 27);
             pageCount.TabIndex = 27;
@@ -194,7 +196,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(449, 232);
+            label5.Location = new Point(449, 254);
             label5.Name = "label5";
             label5.Size = new Size(87, 20);
             label5.TabIndex = 26;
@@ -220,11 +222,29 @@
             CancelButton.UseVisualStyleBackColor = true;
             CancelButton.Click += CancelButton_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(538, 215);
+            textBox1.Name = "publicationYear";
+            textBox1.Size = new Size(250, 27);
+            textBox1.TabIndex = 31;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(449, 219);
+            label6.Name = "label6";
+            label6.Size = new Size(87, 20);
+            label6.TabIndex = 30;
+            label6.Text = "Publication:";
+            // 
             // AddNewBook
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox1);
+            Controls.Add(label6);
             Controls.Add(CancelButton);
             Controls.Add(SaveButton);
             Controls.Add(pageCount);
@@ -273,5 +293,7 @@
         private Label label5;
         private Button SaveButton;
         private Button CancelButton;
+        private TextBox textBox1;
+        private Label label6;
     }
 }

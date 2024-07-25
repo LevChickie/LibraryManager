@@ -9,38 +9,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Library_Management_System.View
 {
-    public partial class AddNewBook : Form
+    public partial class AddNewDVD : Form
     {
         private Form navigateNext;
 
         private LibraryController libraryController;
-        public AddNewBook(LibraryController libraryController)
+
+        public AddNewDVD(LibraryController libraryController)
         {
             InitializeComponent();
             this.libraryController = libraryController;
-            this.genre.DataSource = Enum.GetValues(typeof(Genre));
             this.AuthorTitle.Items.Add("Mr.");
             this.AuthorTitle.Items.Add("Mrs.");
             this.AuthorTitle.Items.Add("Diverse");
-
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
-        private void label3_Click(object sender, EventArgs e)
+
+        private void pageCount_TextChanged(object sender, EventArgs e)
         {
 
         }
+
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Author author = new Author();
-            Book book = new Book();
+            DVD dvd = new DVD();
 
             author.FirstName = this.firstNameText.Text;
             author.MiddleName = this.middleNameText.Text;
@@ -52,7 +52,7 @@ namespace Library_Management_System.View
             bool authorFound = false;
             foreach (Author authorInLibrary in libraryController.GetAuthors())
             {
-                if(authorInLibrary.FirstName == author.FirstName && authorInLibrary.LastName == author.LastName)
+                if (authorInLibrary.FirstName == author.FirstName && authorInLibrary.LastName == author.LastName)
                 {
                     author = authorInLibrary;
                     authorFound = true;
@@ -63,12 +63,12 @@ namespace Library_Management_System.View
             {
                 libraryController.AddNewAuthor(author);
             }
-            book.Author = author;
-            book.Title = this.titleText.Text;
-            book.PageCount = Int32.Parse(this.pageCount.Text);
-            book.IsAvailable = true;
+            dvd.Author = author;
+            dvd.IsAvailable = true;
+            dvd.Title = this.titleText.Text;
+            dvd.Runtime = Int32.Parse(this.runtime.Text);
             //book.Genre = this.genre.
-            libraryController.AddNewItem(book);
+            libraryController.AddNewItem(dvd);
             navigateNext = new SearchBook(libraryController);
             navigateNext.Show();
             this.Hide();

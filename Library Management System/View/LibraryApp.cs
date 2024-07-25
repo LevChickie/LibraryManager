@@ -67,5 +67,12 @@ namespace Library_Management_System.View
             navigateNext.Show();
             this.Hide();
         }
+
+        private void addNewDVD_Click(object sender, EventArgs e)
+        {
+            navigateNext = new AddNewDVD(libraryController);
+            navigateNext.Show();
+            this.Hide();
+        }
     }
 }

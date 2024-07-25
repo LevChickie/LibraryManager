@@ -55,7 +55,7 @@ namespace Library_Management_System
             if (this.authorName.Text != "")
             {
                 //libraryController.GetItems().FindAll
-                foreach (Book borrowable in libraryController.GetBooks().FindAll(item => this.authorName.Text.Contains(item.Author.FirstName) || this.authorName.Text.Contains(item.Author.LastName)))
+                foreach (Borrowable borrowable in libraryController.GetItems().FindAll(item => this.authorName.Text.Contains(item.Author.FirstName) || this.authorName.Text.Contains(item.Author.LastName)))
                 {
                     this.itemSearchList.Items.Add(new ListViewItem(borrowable.GetString()));
                 }

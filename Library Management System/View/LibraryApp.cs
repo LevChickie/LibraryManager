@@ -47,9 +47,9 @@ namespace Library_Management_System.View
             this.Hide();
         }
 
-        private void activeVisitors_Click(object sender, EventArgs e)
+        private void returnItems_Click(object sender, EventArgs e)
         {
-            navigateNext = new AddNewVisitor(libraryController);
+            navigateNext = new ReturnItem(libraryController);
             navigateNext.Show();
             this.Hide();
         }
@@ -61,7 +61,7 @@ namespace Library_Management_System.View
             this.Hide();
         }
 
-        private void addMewVisitor_Click(object sender, EventArgs e)
+        private void activeVisitors_Click(object sender, EventArgs e)
         {
             navigateNext = new HandleVisitors(libraryController);
             navigateNext.Show();

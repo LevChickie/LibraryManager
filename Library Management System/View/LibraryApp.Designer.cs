@@ -31,8 +31,8 @@
             newBorrow = new Button();
             activeBorrows = new Button();
             searchLibrary = new Button();
+            returnBorrowable = new Button();
             activeVisitors = new Button();
-            addMewVisitor = new Button();
             addNewBook = new Button();
             SuspendLayout();
             // 
@@ -66,25 +66,25 @@
             searchLibrary.UseVisualStyleBackColor = true;
             searchLibrary.Click += searchLibraryBooks;
             // 
+            // returnBorrowable
+            // 
+            returnBorrowable.Location = new Point(481, 147);
+            returnBorrowable.Name = "returnBorrowable";
+            returnBorrowable.Size = new Size(127, 37);
+            returnBorrowable.TabIndex = 3;
+            returnBorrowable.Text = "Return Items";
+            returnBorrowable.UseVisualStyleBackColor = true;
+            returnBorrowable.Click += returnItems_Click;
+            // 
             // activeVisitors
             // 
-            activeVisitors.Location = new Point(481, 147);
+            activeVisitors.Location = new Point(481, 68);
             activeVisitors.Name = "activeVisitors";
-            activeVisitors.Size = new Size(127, 37);
-            activeVisitors.TabIndex = 3;
-            activeVisitors.Text = "Register Visitor";
+            activeVisitors.Size = new Size(127, 36);
+            activeVisitors.TabIndex = 4;
+            activeVisitors.Text = "Active Visitors";
             activeVisitors.UseVisualStyleBackColor = true;
             activeVisitors.Click += activeVisitors_Click;
-            // 
-            // addMewVisitor
-            // 
-            addMewVisitor.Location = new Point(481, 68);
-            addMewVisitor.Name = "addMewVisitor";
-            addMewVisitor.Size = new Size(127, 36);
-            addMewVisitor.TabIndex = 4;
-            addMewVisitor.Text = "Active Visitors";
-            addMewVisitor.UseVisualStyleBackColor = true;
-            addMewVisitor.Click += addMewVisitor_Click;
             // 
             // addNewBook
             // 
@@ -102,8 +102,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(addNewBook);
-            Controls.Add(addMewVisitor);
             Controls.Add(activeVisitors);
+            Controls.Add(returnBorrowable);
             Controls.Add(searchLibrary);
             Controls.Add(activeBorrows);
             Controls.Add(newBorrow);
@@ -117,8 +117,8 @@
         private Button newBorrow;
         private Button activeBorrows;
         private Button searchLibrary;
+        private Button returnBorrowable;
         private Button activeVisitors;
-        private Button addMewVisitor;
         private Button addNewBook;
     }
 }

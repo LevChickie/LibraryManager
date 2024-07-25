@@ -10,6 +10,8 @@ namespace Library_Management_System
 {
     public class Book : Borrowable
     {
+
+
         private Author author;
         public Author Author { get { return author; } set {
                 if (author != value)
@@ -18,19 +20,7 @@ namespace Library_Management_System
                     //OnPropertyChanged("Data");
                 }
             } }
-        private string title;
-        public string Title
-        {
-            get { return title; }
-            set
-            {
-                if (title != value)
-                {
-                    title = value;
-                    //OnPropertyChanged("Data");
-                }
-            }
-        }
+        
         private Genre genre;
         public Genre Genre
         {
@@ -44,7 +34,11 @@ namespace Library_Management_System
                 }
             }
         }
-
+        private int publicationYear;
+        public int PublicationYear
+        {
+            get { return publicationYear;  } set { publicationYear = value; }
+        }
         private int pageCount;
         public int PageCount
         {
@@ -64,8 +58,7 @@ namespace Library_Management_System
             string[] resultString = new string[2];
             resultString[0] = Title;
             resultString[1] = Author.FirstName + " " + Author.LastName;
-            //resultString[4] = subscribedUntil.ToString(new CultureInfo("de-DE"));
-            //resultString[5] = BorrowConnectedToVisitor.Count.ToString();
+            
 
             return resultString;
         }

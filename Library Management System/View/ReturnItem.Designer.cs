@@ -1,6 +1,6 @@
-﻿namespace Library_Management_System
+﻿namespace Library_Management_System.View
 {
-    partial class CreateNewBorrow
+    partial class ReturnItem
     {
         /// <summary>
         /// Required designer variable.
@@ -28,73 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            saveBorrows = new Button();
-            durationOfBorrowLabel = new Label();
             panel1 = new Panel();
-            addNewBook = new Button();
+            getBorrows = new Button();
+            returnItems = new Button();
             borrowedBooksLabel = new Label();
-            borrowedBooks = new ListView();
-            emailText = new TextBox();
+            borrowedItems = new ListView();
+            email = new TextBox();
             emailLabel = new Label();
             lastName = new TextBox();
             lastNameLabel = new Label();
             firstName = new TextBox();
             firstNameLabel = new Label();
-            durationOfBorrow = new TextBox();
-            cancel = new Button();
-            label1 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // saveBorrows
-            // 
-            saveBorrows.BackColor = SystemColors.Menu;
-            saveBorrows.Location = new Point(345, 381);
-            saveBorrows.Name = "saveBorrows";
-            saveBorrows.Size = new Size(94, 29);
-            saveBorrows.TabIndex = 0;
-            saveBorrows.Text = "Save";
-            saveBorrows.UseVisualStyleBackColor = false;
-            saveBorrows.Click += saveBorrows_Click;
-            // 
-            // durationOfBorrowLabel
-            // 
-            durationOfBorrowLabel.AutoSize = true;
-            durationOfBorrowLabel.Location = new Point(30, 235);
-            durationOfBorrowLabel.Name = "durationOfBorrowLabel";
-            durationOfBorrowLabel.Size = new Size(67, 20);
-            durationOfBorrowLabel.TabIndex = 1;
-            durationOfBorrowLabel.Text = "Duration";
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(addNewBook);
+            panel1.Controls.Add(getBorrows);
+            panel1.Controls.Add(returnItems);
             panel1.Controls.Add(borrowedBooksLabel);
-            panel1.Controls.Add(borrowedBooks);
-            panel1.Controls.Add(emailText);
+            panel1.Controls.Add(borrowedItems);
+            panel1.Controls.Add(email);
             panel1.Controls.Add(emailLabel);
             panel1.Controls.Add(lastName);
             panel1.Controls.Add(lastNameLabel);
             panel1.Controls.Add(firstName);
             panel1.Controls.Add(firstNameLabel);
-            panel1.Controls.Add(durationOfBorrow);
-            panel1.Controls.Add(durationOfBorrowLabel);
-            panel1.Location = new Point(85, 12);
+            panel1.Location = new Point(110, 25);
             panel1.Name = "panel1";
-            panel1.Size = new Size(582, 331);
-            panel1.TabIndex = 2;
+            panel1.Size = new Size(582, 350);
+            panel1.TabIndex = 3;
             // 
-            // addNewBook
+            // getBorrows
             // 
-            addNewBook.Location = new Point(397, 285);
-            addNewBook.Name = "addNewBook";
-            addNewBook.Size = new Size(94, 29);
-            addNewBook.TabIndex = 11;
-            addNewBook.Text = "New Book";
-            addNewBook.UseVisualStyleBackColor = true;
-            addNewBook.Click += addNewBook_Click;
+            getBorrows.Location = new Point(155, 210);
+            getBorrows.Name = "getBorrows";
+            getBorrows.Size = new Size(110, 29);
+            getBorrows.TabIndex = 8;
+            getBorrows.Text = "Get Borrows";
+            getBorrows.UseVisualStyleBackColor = true;
+            getBorrows.Click += getBorrows_Click;
+            // 
+            // returnItems
+            // 
+            returnItems.Location = new Point(214, 299);
+            returnItems.Name = "returnItems";
+            returnItems.Size = new Size(163, 29);
+            returnItems.TabIndex = 11;
+            returnItems.Text = "Return chosen items";
+            returnItems.UseVisualStyleBackColor = true;
+            returnItems.Click += returnItems_Click;
             // 
             // borrowedBooksLabel
             // 
@@ -105,20 +89,20 @@
             borrowedBooksLabel.TabIndex = 10;
             borrowedBooksLabel.Text = "Borrowed Books";
             // 
-            // borrowedBooks
+            // borrowedItems
             // 
-            borrowedBooks.Location = new Point(359, 35);
-            borrowedBooks.Name = "borrowedBooks";
-            borrowedBooks.Size = new Size(166, 244);
-            borrowedBooks.TabIndex = 9;
-            borrowedBooks.UseCompatibleStateImageBehavior = false;
+            borrowedItems.Location = new Point(359, 35);
+            borrowedItems.Name = "borrowedItems";
+            borrowedItems.Size = new Size(166, 244);
+            borrowedItems.TabIndex = 9;
+            borrowedItems.UseCompatibleStateImageBehavior = false;
             // 
-            // emailText
+            // email
             // 
-            emailText.Location = new Point(118, 166);
-            emailText.Name = "emailText";
-            emailText.Size = new Size(235, 27);
-            emailText.TabIndex = 8;
+            email.Location = new Point(118, 166);
+            email.Name = "email";
+            email.Size = new Size(235, 27);
+            email.TabIndex = 8;
             // 
             // emailLabel
             // 
@@ -162,44 +146,14 @@
             firstNameLabel.TabIndex = 3;
             firstNameLabel.Text = "First Name";
             // 
-            // durationOfBorrow
-            // 
-            durationOfBorrow.Location = new Point(118, 232);
-            durationOfBorrow.Name = "durationOfBorrow";
-            durationOfBorrow.Size = new Size(51, 27);
-            durationOfBorrow.TabIndex = 2;
-            durationOfBorrow.Text = "1";
-            // 
-            // cancel
-            // 
-            cancel.Location = new Point(115, 381);
-            cancel.Name = "cancel";
-            cancel.Size = new Size(94, 29);
-            cancel.TabIndex = 12;
-            cancel.Text = "Cancel";
-            cancel.UseVisualStyleBackColor = true;
-            cancel.Click += cancel_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(175, 235);
-            label1.Name = "label1";
-            label1.Size = new Size(52, 20);
-            label1.TabIndex = 12;
-            label1.Text = "month";
-            // 
-            // CreateNewBorrow
+            // ReturnItem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.MenuHighlight;
             ClientSize = new Size(800, 450);
-            Controls.Add(cancel);
             Controls.Add(panel1);
-            Controls.Add(saveBorrows);
-            Name = "CreateNewBorrow";
-            Text = "CreateNewBorrow";
+            Name = "ReturnItem";
+            Text = "ReturnItem";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -207,20 +161,16 @@
 
         #endregion
 
-        private Button saveBorrows;
-        private Label durationOfBorrowLabel;
         private Panel panel1;
+        private Button returnItems;
+        private Label borrowedBooksLabel;
+        private ListView borrowedItems;
+        private TextBox email;
+        private Label emailLabel;
         private TextBox lastName;
         private Label lastNameLabel;
         private TextBox firstName;
         private Label firstNameLabel;
-        private TextBox durationOfBorrow;
-        private Label borrowedBooksLabel;
-        private ListView borrowedBooks;
-        private TextBox emailText;
-        private Label emailLabel;
-        private Button addNewBook;
-        private Button cancel;
-        private Label label1;
+        private Button getBorrows;
     }
 }

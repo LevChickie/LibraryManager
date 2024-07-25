@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -53,6 +54,7 @@ namespace Library_Management_System
 
         private void saveBorrows_Click(object sender, EventArgs e)
         {
+            //items = libraryController.AvailableItems(items,);
             BorrowDetails newBorrow = new BorrowDetails();
             newBorrow.Start = DateTime.Now;
             newBorrow.Extension = false;
@@ -61,7 +63,7 @@ namespace Library_Management_System
             bool visitorExists = false;
             foreach (Visitor visitor in libraryController.GetVisitors())
             {
-                if (visitor.FirstName == this.firstName.Text && visitor.LastName == this.lastName.Text /*&& visitor.Birthday.Equals(this.birthdayPicker)*/)
+                if (visitor.FirstName == this.firstName.Text && visitor.LastName == this.lastName.Text)
                 {
                     newBorrow.BorrowedBy = visitor;
                     visitorExists = true;
@@ -70,23 +72,19 @@ namespace Library_Management_System
             }
             if (!visitorExists)
             {
-                Console.WriteLine("Visitor not registered in this library");
+                Debug.WriteLine("Visitor not registered in this library");
+            }
+            items = libraryController.AvailableItems(items, newBorrow.BorrowedBy);
+            newBorrow.BorrowedItems = items;
+            newBorrow.BorrowedBy.BorrowConnectedToVisitor.Add(newBorrow);
+            Debug.WriteLine($"Visitor {this.lastName.Text} took {items.Count} items");
 
-            }
-            if (this.borrowedBooks.SelectedItems.Count > 0)
-            {
-                newBorrow.BorrowedItems = items;
-            }
-            else
-            {
-                Console.WriteLine("No item selected. Please select an item to borrow");
-                return;
-            }
+
             libraryController.AddNewBorrow(newBorrow);
-
             navigateNext = new HandleBorrows(libraryController);
             navigateNext.Show();
             this.Hide();
         }
+        
     }
 }

@@ -1,6 +1,7 @@
 using Library_Management_System.Controller;
 using Library_Management_System.View;
 using Library_Management_System.Model;
+using System.Diagnostics;
 namespace Library_Management_System
 {
     internal static class Program
@@ -13,6 +14,8 @@ namespace Library_Management_System
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            Debug.WriteLine("constructor fired");
+
             ApplicationConfiguration.Initialize();
             LibraryController libraryController = new LibraryController();
             StreamReader sr;
@@ -38,7 +41,7 @@ namespace Library_Management_System
                 s = String.Empty;
                 while ((s = sr.ReadLine()) != null)
                 {
-                    data = s.Split("-");
+                    data = s.Split("|");
                     Book book = new Book();
                     Author author = libraryController.GetAuthors().Find(x => x.FirstName == data[1] && x.LastName == data[2]);
                     book.Author = author;
@@ -46,14 +49,18 @@ namespace Library_Management_System
                     {
                         author = new Author();
                         book.Author = author;
-                        book.Author.FirstName = data[1];
-                        book.Author.LastName = data[3];
+                        book.Id = Guid.Parse(data[0]);
+                        book.Author.Title = data[1];
+                        book.Author.FirstName = data[2];
+                        book.Author.MiddleName = data[3];
+                        book.Author.LastName = data[4];
                     }
                     //book.VisitorId = Guid.Parse(data[0]);
                     
-                    book.Title = data[4];
-                    book.Genre = (Genre)Enum.Parse(typeof(Genre), data[5]);
-                    book.PageCount = Int32.Parse(data[6]);
+                    book.Title = data[5];
+                    book.IsAvailable = true;
+                    book.Genre = (Genre)Enum.Parse(typeof(Genre), data[6]);
+                    book.PageCount = Int32.Parse(data[7]);
                     libraryController.AddNewBook(book);
                     //do what you have to here
                 }
@@ -82,12 +89,14 @@ namespace Library_Management_System
                     foreach (string title in borrowedItem)
                     {
                         borrow.BorrowedItems.Add(libraryController.GetBookByTitle(title));
-
+                        libraryController.GetBookByTitle(title).IsAvailable = false;
                     }
+                    borrow.BorrowedBy.BorrowConnectedToVisitor.Add(borrow);
                     libraryController.AddNewBorrow(borrow);
                 }
             }
             Application.Run(new LibraryApp(libraryController));
         }
+
     }
 }

@@ -22,13 +22,19 @@ namespace Library_Management_System
             get { return subscribedUntil; }
             set {  subscribedUntil = value; }
         }
-        private List<BorrowDetails> borrowConnectedToVisitor;
+        private List<BorrowDetails> borrowConnectedToVisitor = new List<BorrowDetails>();
         public List<BorrowDetails> BorrowConnectedToVisitor
         {
             get { return borrowConnectedToVisitor; }
             set { borrowConnectedToVisitor = value; }
         }
+        private string emailAddress;
 
+        public string EmailAddress
+        {
+            get { return emailAddress; }
+            set { emailAddress = value; }
+        }
         public string[] GetString()
         {
             string[] resultString = new string[4];

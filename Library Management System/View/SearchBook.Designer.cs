@@ -30,7 +30,7 @@
         {
             panel1 = new Panel();
             back = new Button();
-            bookSearchList = new ListView();
+            itemSearchList = new ListView();
             search = new Button();
             label4 = new Label();
             authorName = new TextBox();
@@ -47,7 +47,7 @@
             // 
             panel1.BackColor = SystemColors.HighlightText;
             panel1.Controls.Add(back);
-            panel1.Controls.Add(bookSearchList);
+            panel1.Controls.Add(itemSearchList);
             panel1.Controls.Add(search);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(authorName);
@@ -73,12 +73,12 @@
             // 
             // bookSearchList
             // 
-            bookSearchList.Location = new Point(366, 57);
-            bookSearchList.Name = "bookSearchList";
-            bookSearchList.Size = new Size(215, 222);
-            bookSearchList.TabIndex = 8;
-            bookSearchList.UseCompatibleStateImageBehavior = false;
-            bookSearchList.SelectedIndexChanged += bookSearchList_SelectedIndexChanged;
+            itemSearchList.Location = new Point(366, 57);
+            itemSearchList.Name = "bookSearchList";
+            itemSearchList.Size = new Size(215, 222);
+            itemSearchList.TabIndex = 8;
+            itemSearchList.UseCompatibleStateImageBehavior = false;
+            itemSearchList.SelectedIndexChanged += bookSearchList_SelectedIndexChanged;
             // 
             // search
             // 
@@ -183,7 +183,7 @@
         private TextBox titleText;
         private Label label3;
         private ComboBox genrePicker;
-        private ListView bookSearchList;
+        private ListView itemSearchList;
         private Button search;
         private Button addToBorrows;
         private Button back;

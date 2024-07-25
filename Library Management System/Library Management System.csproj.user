@@ -19,6 +19,9 @@
     <Compile Update="View\LibraryApp.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\ReturnItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\SearchBook.cs">
       <SubType>Form</SubType>
     </Compile>

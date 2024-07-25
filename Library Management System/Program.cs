@@ -61,7 +61,9 @@ namespace Library_Management_System
                     book.IsAvailable = true;
                     book.Genre = (Genre)Enum.Parse(typeof(Genre), data[6]);
                     book.PageCount = Int32.Parse(data[7]);
-                    libraryController.AddNewBook(book);
+                    book.PublicationYear = Int32.Parse(data[8]);
+                    book.Type = (BorrowableTypes)Enum.Parse(typeof(BorrowableTypes), data[9]);
+                    libraryController.AddNewItem(book);
                     //do what you have to here
                 }
             }
@@ -72,27 +74,17 @@ namespace Library_Management_System
                 {
                     data = s.Split("-");
                     //do what you have to here
-                    BorrowDetails borrow = new BorrowDetails();
-                    borrow.BorrowedBy = libraryController.GetVisitors().Find(x=>x.FirstName == data[2] && x.MiddleName == data[3] && x.LastName == data[4]);
-                    
-                    if (borrow.BorrowedBy == null)
-                    {
-                        borrow.BorrowedBy = new Visitor();
-                        borrow.BorrowedBy.Title = data[1];
-                        borrow.BorrowedBy.FirstName = data[2];
-                        borrow.BorrowedBy.MiddleName = data[3];
-                        borrow.BorrowedBy.LastName = data[4];
-                    }                    
 
+                    Visitor borrower = libraryController.GetVisitors().Find(x=>x.FirstName == data[2] && x.MiddleName == data[3] && x.LastName == data[4]);
+                    
                     string[] borrowedItem = data[5].Split("/");
-                    borrow.BorrowedItems = new List<Borrowable>();
                     foreach (string title in borrowedItem)
                     {
-                        borrow.BorrowedItems.Add(libraryController.GetBookByTitle(title));
-                        libraryController.GetBookByTitle(title).IsAvailable = false;
+                        //borrower.BorrowConnectedToVisitor.Add(libraryController.GetItemByTitle(title));
+                        libraryController.AddNewBorrow(libraryController.GetItemByTitle(title), borrower);
+                        libraryController.GetItemByTitle(title).IsAvailable = false;
                     }
-                    borrow.BorrowedBy.BorrowConnectedToVisitor.Add(borrow);
-                    libraryController.AddNewBorrow(borrow);
+                    
                 }
             }
             Application.Run(new LibraryApp(libraryController));

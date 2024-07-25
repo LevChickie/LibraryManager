@@ -31,7 +31,8 @@ namespace Library_Management_System.View
             if (visitorReturned != null)
             {
                 List<Borrowable> borrowedItemsByVisitor = new List<Borrowable>();
-                visitorReturned.BorrowConnectedToVisitor.ForEach(borrow => borrowedItemsByVisitor.AddRange(borrow.BorrowedItems));
+                borrowedItemsByVisitor.AddRange(visitorReturned.BorrowConnectedToVisitor);
+
                 this.borrowedItems.Clear();
                 this.borrowedItems.View = System.Windows.Forms.View.Details;
                 this.borrowedItems.Columns.Add("Title");
@@ -52,7 +53,7 @@ namespace Library_Management_System.View
             {
                 foreach (ListViewItem item in this.borrowedItems.SelectedItems)
                 {
-                    itemsReturned.Add(libraryController.GetBookByTitle(item.SubItems[0].Text));
+                    itemsReturned.Add(libraryController.GetItemByTitle(item.SubItems[0].Text));
                 }
                 if(visitorReturned!= null)
                 {

@@ -67,7 +67,7 @@ namespace Library_Management_System.View
             book.Title = this.titleText.Text;
             book.PageCount = Int32.Parse(this.pageCount.Text);
             //book.Genre = this.genre.
-            libraryController.AddNewBook(book);
+            libraryController.AddNewItem(book);
             navigateNext = new SearchBook(libraryController);
             navigateNext.Show();
             this.Hide();

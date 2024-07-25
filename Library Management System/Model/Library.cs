@@ -14,8 +14,10 @@ namespace Library_Management_System.Model
         public List<Author> AuthorList { get { return authorList; } set { authorList = value; } }
         private List<Visitor> visitorList;
         public List<Visitor> VisitorList { get { return visitorList; } set { visitorList = value; } }
-        private List<Book> storedBooks;
-        public List<Book> BookList { get { return storedBooks; } set { storedBooks = value; } }
+        private List<Borrowable> storedItems;
+        public List<Borrowable> StoredItemsList { get { return storedItems; } set { storedItems = value; } }
+
+
         private List<BorrowDetails> borrowList;
         public List<BorrowDetails> BorrowList { get { return borrowList; } set { borrowList = value; } }
 
@@ -23,7 +25,7 @@ namespace Library_Management_System.Model
         {
             authorList = new List<Author>();
             visitorList = new List<Visitor>();
-            storedBooks = new List<Book>();
+            storedItems = new List<Borrowable>();
             borrowList = new List<BorrowDetails>();
         }
         public void AddNewVisitor(Visitor visitor)
@@ -31,31 +33,34 @@ namespace Library_Management_System.Model
             visitorList.Add(visitor);
             Console.Write("Size of Visitors: " + visitorList.Count);
         }
-        public void AddNewBook(Book book)
+        public void AddNewItem(Borrowable borrowableItem)
         {
-            storedBooks.Add(book);
+            storedItems.Add(borrowableItem);
         }
 
-        public Book GetBookByTitle(string title)
+        public Borrowable GetBorrowableByTitle(string title)
         {
-            return BookList.Find(x => x.Title == title);
+            return StoredItemsList.Find(x => x.Title == title);
+        }
+        
+
+        public void AddNewBorrow(Borrowable borrowedItem, Visitor borrowedBy)
+        {
+            VisitorList.Find(person => person.VisitorId == borrowedBy.VisitorId).BorrowConnectedToVisitor.Add(borrowedItem);
         }
 
-        public void AddNewBorrow(BorrowDetails borrowDetails)
+        public void AddNewBorrow(List<Borrowable> borrowedItems, Visitor borrowedBy)
         {
-            borrowList.Add(borrowDetails);
-            Console.Write("Size of Visitors: " + borrowList.Count);
-
+            VisitorList.Find(person => person.VisitorId == borrowedBy.VisitorId).BorrowConnectedToVisitor.AddRange(borrowedItems);
         }
-
         public bool ItemAvailable(Borrowable item)
         {
-            if (BookList == null)
+            if (StoredItemsList == null)
             {
                 Console.WriteLine("No available items");
                 return false;
             }
-            return BookList.Find(x => x == item).IsAvailable;
+            return StoredItemsList.Find(x => x == item).IsAvailable;
         }
         public SortedDictionary<Borrowable, bool> AvailableItems(List<Borrowable> itemsToBorrow)
         {

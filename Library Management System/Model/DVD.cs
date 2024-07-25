@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Model
 {
-    internal class DVD : Borrowable
+    public class DVD : Borrowable
     {
         private int runtime;
         //private Director / Author? director;

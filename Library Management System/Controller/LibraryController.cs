@@ -24,34 +24,31 @@ namespace Library_Management_System.Controller
             library.AddNewVisitor(visitor);
         }
 
-        public void AddNewBorrow(BorrowDetails borrow)
+        public void AddNewBorrow(Borrowable borrowedItem, Visitor visitor)
         {
-            library.AddNewBorrow(borrow);
+            library.AddNewBorrow(borrowedItem, visitor);
         }
-
+        public void AddNewBorrow(List<Borrowable> borrowedItems, Visitor visitor)
+        {
+            library.AddNewBorrow(borrowedItems, visitor);
+        }
+        public void AddNewItem(Borrowable item)
+        {
+            library.StoredItemsList.Add(item);
+        }
         public void ReturnBorrowedItems(Visitor visitor, List<Borrowable> items) {
             //To HashSet due to unique Guid Id could reduce the complexity from O (j * k * l) to O (k * l)
             HashSet<Guid> returnedItemIds = new HashSet<Guid>(items.Select(item => item.Id));
-            foreach (BorrowDetails borrowDetail in visitor.BorrowConnectedToVisitor)
+            foreach (Borrowable item in visitor.BorrowConnectedToVisitor)
             {
-                var itemsToRemove = new List<Borrowable>();
-                foreach (Borrowable item in borrowDetail.BorrowedItems)
+                if (returnedItemIds.Contains(item.Id))
                 {
-                    if (returnedItemIds.Contains(item.Id))
-                    {
-                        //notify observers
-                        item.IsAvailable = true;
-                        itemsToRemove.Add(item);
-                    }
+                    //notify observers
+                    item.IsAvailable = true;
                 }
-                foreach (Borrowable item in itemsToRemove)
-                {
-                    borrowDetail.BorrowedItems.Remove(item);
-                }
-                borrowDetail.BorrowedItems.RemoveAll(item => returnedItemIds.Contains(item.Id));
+                
             }
-            visitor.BorrowConnectedToVisitor.RemoveAll(borrows => borrows.BorrowedItems.Count == 0);
-
+            visitor.BorrowConnectedToVisitor.RemoveAll(borrowedItem => returnedItemIds.Contains(borrowedItem.Id));
         }
         public List<BorrowDetails> GetBorrowDetails()
         {
@@ -73,19 +70,19 @@ namespace Library_Management_System.Controller
             library.AuthorList.Add(author);
         }
 
+        public List<Borrowable> GetItems()
+        {
+            return library.StoredItemsList;
+        }
         public List<Book> GetBooks()
         {
-            return library.BookList;
+            return library.StoredItemsList.Where(item => item.Type == BorrowableTypes.Book).ToList().Cast<Book>().ToList();
         }
-
-        public Book GetBookByTitle(string title)
+        public Borrowable GetItemByTitle(string title)
         {
-            return library.GetBookByTitle(title);
+            return library.GetBorrowableByTitle(title);
         }
-        public void AddNewBook(Book book)
-        {
-            library.BookList.Add(book);
-        }
+        
         public bool ItemAvailable(Borrowable borrowable)
         {
             return library.ItemAvailable(borrowable);

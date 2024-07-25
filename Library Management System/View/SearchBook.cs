@@ -29,7 +29,7 @@ namespace Library_Management_System
             {
                 foreach(ListViewItem item in  this.itemSearchList.SelectedItems)
                 {
-                    items.Add(libraryController.GetBookByTitle(item.SubItems[0].Text));
+                    items.Add(libraryController.GetItemByTitle(item.SubItems[0].Text));
                 }
             }
 
@@ -47,16 +47,17 @@ namespace Library_Management_System
 
             if (this.titleText.Text != "")
             {
-                foreach (Book book in libraryController.GetBooks().FindAll(b => b.Title == this.titleText.Text))
+                foreach (Book book in libraryController.GetItems().FindAll(b => b.Title == this.titleText.Text))
                 {
                     this.itemSearchList.Items.Add(new ListViewItem(book.GetString()));
                 }
             }
             if (this.authorName.Text != "")
             {
-                foreach (Book book in libraryController.GetBooks().FindAll(b => this.authorName.Text.Contains(b.Author.FirstName) || this.authorName.Text.Contains(b.Author.LastName)))
+                //libraryController.GetItems().FindAll
+                foreach (Book borrowable in libraryController.GetBooks().FindAll(item => this.authorName.Text.Contains(item.Author.FirstName) || this.authorName.Text.Contains(item.Author.LastName)))
                 {
-                    this.itemSearchList.Items.Add(new ListViewItem(book.GetString()));
+                    this.itemSearchList.Items.Add(new ListViewItem(borrowable.GetString()));
                 }
             }
         }

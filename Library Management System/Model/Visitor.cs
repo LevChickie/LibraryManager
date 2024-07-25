@@ -22,11 +22,11 @@ namespace Library_Management_System
             get { return subscribedUntil; }
             set {  subscribedUntil = value; }
         }
-        private List<BorrowDetails> borrowConnectedToVisitor = new List<BorrowDetails>();
-        public List<BorrowDetails> BorrowConnectedToVisitor
+        private List<Borrowable> borrowedItems = new List<Borrowable>();
+        public List<Borrowable> BorrowConnectedToVisitor
         {
-            get { return borrowConnectedToVisitor; }
-            set { borrowConnectedToVisitor = value; }
+            get { return borrowedItems; }
+            set { borrowedItems = value; }
         }
         private string emailAddress;
 

@@ -44,6 +44,29 @@ namespace Library_Management_System
                 }
             }
         }
+        private BorrowableTypes type;
+
+        public BorrowableTypes Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        private DateTime start;
+        public DateTime Start
+        {
+            get { return start; }
+            set { start = value; }
+        }
+        private DateTime deadline;
+        public DateTime Deadline
+        {
+            get { return deadline; }
+            set { deadline = value; }
+        }
+        private bool extension;
+        public bool Extension { get { return extension; } set { extension = value; } }
+
         public void Attach(IWaitListObserver observer)
         {
             waitlistObservers.Add(observer);

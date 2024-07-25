@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -54,33 +55,41 @@ namespace Library_Management_System
 
         private void saveBorrows_Click(object sender, EventArgs e)
         {
-            //items = libraryController.AvailableItems(items,);
-            BorrowDetails newBorrow = new BorrowDetails();
-            newBorrow.Start = DateTime.Now;
-            newBorrow.Extension = false;
-            newBorrow.Deadline = newBorrow.Start;
-            newBorrow.Deadline = newBorrow.Start.AddMonths(Int32.Parse(this.durationOfBorrow.Text));
+            foreach(Borrowable item in items)
+            {
+                item.Start = DateTime.Now;
+                if (Regex.IsMatch(this.durationOfBorrow.Text, @"^\d+$"))
+                {
+                    item.Deadline = item.Start.AddMonths(Int32.Parse(this.durationOfBorrow.Text));
+                }
+                else
+                {
+                    item.Deadline = item.Start.AddMonths(2);
+                }
+                item.Extension = false;
+            }
             bool visitorExists = false;
             foreach (Visitor visitor in libraryController.GetVisitors())
             {
                 if (visitor.FirstName == this.firstName.Text && visitor.LastName == this.lastName.Text)
                 {
-                    newBorrow.BorrowedBy = visitor;
+                    
                     visitorExists = true;
                     break;
                 }
             }
-            if (!visitorExists)
+            Visitor borrowingVisitor = libraryController.GetVisitors().Find(visitor => visitor.FirstName == this.firstName.Text && visitor.LastName == this.lastName.Text);
+            if (borrowingVisitor != null)
             {
-                Debug.WriteLine("Visitor not registered in this library");
+                items = libraryController.AvailableItems(items, borrowingVisitor);
+                Debug.WriteLine($"Visitor {this.lastName.Text} took {items.Count} items");
+                libraryController.AddNewBorrow(items, borrowingVisitor); 
             }
-            items = libraryController.AvailableItems(items, newBorrow.BorrowedBy);
-            newBorrow.BorrowedItems = items;
-            newBorrow.BorrowedBy.BorrowConnectedToVisitor.Add(newBorrow);
-            Debug.WriteLine($"Visitor {this.lastName.Text} took {items.Count} items");
-
-
-            libraryController.AddNewBorrow(newBorrow);
+            else
+            { 
+                Debug.WriteLine("Visitor not registered in this library");
+                return;
+            }
             navigateNext = new HandleBorrows(libraryController);
             navigateNext.Show();
             this.Hide();

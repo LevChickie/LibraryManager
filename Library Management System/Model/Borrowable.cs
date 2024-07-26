@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,6 +110,14 @@ namespace Library_Management_System
             resultString[1] = Author.FirstName + " " + Author.LastName;
 
 
+            return resultString;
+        }
+        public string[] GetString(bool representDeadline)
+        {
+            string[] resultString = new string[3];
+            resultString[0] = Title;
+            resultString[1] = Author.FirstName + " " + Author.LastName;
+            resultString[2] = Deadline.ToString(new CultureInfo("de-DE"));
             return resultString;
         }
 

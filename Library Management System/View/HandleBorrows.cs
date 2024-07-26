@@ -22,15 +22,23 @@ namespace Library_Management_System.View
             this.libraryController = libraryController;
             this.borrowList.View = System.Windows.Forms.View.Details;
             this.borrowList.Columns.Add("Borrower First Name");
+            this.borrowList.Columns.Add("Borrower Middle Name");
             this.borrowList.Columns.Add("Borrower Last Name");
-            this.borrowList.Columns.Add("Start Date");
-            this.borrowList.Columns.Add("End Date");
-            this.borrowList.Columns.Add("Is extended");
-
-            foreach (BorrowDetails borrowDetail in libraryController.GetBorrowDetails())
+            this.borrowList.Columns.Add("Book title");
+            this.borrowList.Columns.Add("Author");
+            this.borrowList.Columns.Add("Deadline");
+            //string[] borrowedInformation;
+            List<string> borrowedInformation = new List<string>();
+            foreach (Visitor visitor in libraryController.GetVisitors())
             {
-                this.borrowList.Items.Add(new ListViewItem(borrowDetail.GetString()));
+                foreach(Borrowable borrowedItem in visitor.BorrowConnectedToVisitor)
+                {
+                    borrowedInformation = visitor.GetString().ToList();
+                    borrowedInformation.AddRange(borrowedItem.GetString(true).ToList());
+                    this.borrowList.Items.Add(new ListViewItem(borrowedInformation.ToArray()));
+                }
             }
+            
         }
 
         private void newBorrow_Click(object sender, EventArgs e)

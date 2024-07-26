@@ -12,7 +12,7 @@ namespace Library_Management_System
         {
             InitializeComponent();
             this.libraryController = libraryController;
-            this.genrePicker.DataSource = Enum.GetValues(typeof(Genre));
+            this.genrePicker.DataSource = Enum.GetValues(typeof(BorrowableTypes));
         }
 
         private void back_Click(object sender, EventArgs e)
@@ -56,6 +56,12 @@ namespace Library_Management_System
             {
                 //libraryController.GetItems().FindAll
                 foreach (Borrowable borrowable in libraryController.GetItems().FindAll(item => this.authorName.Text.Contains(item.Author.FirstName) || this.authorName.Text.Contains(item.Author.LastName)))
+                {
+                    this.itemSearchList.Items.Add(new ListViewItem(borrowable.GetString()));
+                }
+            }
+            else if (this.genrePicker.Text != ""){
+                foreach (Borrowable borrowable in libraryController.GetItems().FindAll(item => this.genrePicker.Text.Equals(item.Type.ToString())))
                 {
                     this.itemSearchList.Items.Add(new ListViewItem(borrowable.GetString()));
                 }

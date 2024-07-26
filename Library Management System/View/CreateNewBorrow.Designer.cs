@@ -92,7 +92,7 @@
             addNewBook.Name = "addNewBook";
             addNewBook.Size = new Size(94, 29);
             addNewBook.TabIndex = 11;
-            addNewBook.Text = "New Book";
+            addNewBook.Text = "New Item";
             addNewBook.UseVisualStyleBackColor = true;
             addNewBook.Click += addNewBook_Click;
             // 

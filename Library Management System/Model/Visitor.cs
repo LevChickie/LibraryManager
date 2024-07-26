@@ -37,11 +37,10 @@ namespace Library_Management_System
         }
         public string[] GetString()
         {
-            string[] resultString = new string[4];
+            string[] resultString = new string[3];
             resultString[0] = FirstName;
             resultString[1] = MiddleName;
             resultString[2] = LastName;
-            resultString[3] = VisitorId.ToString();
             //resultString[4] = subscribedUntil.ToString(new CultureInfo("de-DE"));
             //resultString[5] = BorrowConnectedToVisitor.Count.ToString();
 

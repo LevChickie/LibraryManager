@@ -18,6 +18,15 @@ namespace Library_Management_System
 
             ApplicationConfiguration.Initialize();
             LibraryController libraryController = new LibraryController();
+
+            LoadVisitors(libraryController);
+            LoadData(libraryController);
+            
+            Application.Run(new LibraryApp(libraryController));
+        }
+        
+        public static void LoadVisitors(LibraryController libraryController)
+        {
             StreamReader sr;
             string[] data;
             string s;
@@ -36,6 +45,12 @@ namespace Library_Management_System
                     libraryController.AddNewVisitor(visitor);
                 }
             }
+        }
+        public static void LoadData(LibraryController libraryController)
+        {
+            StreamReader sr;
+            string[] data;
+            string s;
             using (sr = File.OpenText("Database/BookSet.txt"))
             {
                 s = String.Empty;
@@ -56,7 +71,7 @@ namespace Library_Management_System
                         book.Author.LastName = data[4];
                     }
                     //book.VisitorId = Guid.Parse(data[0]);
-                    
+
                     book.Title = data[5];
                     book.IsAvailable = true;
                     book.Genre = (Genre)Enum.Parse(typeof(Genre), data[6]);
@@ -67,6 +82,38 @@ namespace Library_Management_System
                     //do what you have to here
                 }
             }
+
+            using (sr = File.OpenText("Database/DVDSet.txt"))
+            {
+                s = String.Empty;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    data = s.Split("|");
+                    DVD dvd = new DVD();
+                    Author author = libraryController.GetAuthors().Find(x => x.FirstName == data[1] && x.LastName == data[2]);
+                    dvd.Author = author;
+                    if (author == null)
+                    {
+                        author = new Author();
+                        dvd.Author = author;
+                        dvd.Id = Guid.Parse(data[0]);
+                        dvd.Author.Title = data[1];
+                        dvd.Author.FirstName = data[2];
+                        dvd.Author.MiddleName = data[3];
+                        dvd.Author.LastName = data[4];
+                    }
+                    //book.VisitorId = Guid.Parse(data[0]);
+
+                    dvd.Title = data[5];
+                    dvd.IsAvailable = true;
+                    dvd.Runtime = Int32.Parse(data[6]);
+                    dvd.PublicationYear = Int32.Parse(data[7]);
+                    dvd.Type = (BorrowableTypes)Enum.Parse(typeof(BorrowableTypes), data[8]);
+                    libraryController.AddNewItem(dvd);
+                    //do what you have to here
+                }
+            }
+
             using (sr = File.OpenText("Database/BorrowSet.txt"))
             {
                 s = String.Empty;
@@ -75,8 +122,8 @@ namespace Library_Management_System
                     data = s.Split("-");
                     //do what you have to here
 
-                    Visitor borrower = libraryController.GetVisitors().Find(x=>x.FirstName == data[2] && x.MiddleName == data[3] && x.LastName == data[4]);
-                    
+                    Visitor borrower = libraryController.GetVisitors().Find(x => x.FirstName == data[2] && x.MiddleName == data[3] && x.LastName == data[4]);
+
                     string[] borrowedItem = data[5].Split("/");
                     foreach (string title in borrowedItem)
                     {
@@ -84,10 +131,9 @@ namespace Library_Management_System
                         libraryController.AddNewBorrow(libraryController.GetItemByTitle(title), borrower);
                         libraryController.GetItemByTitle(title).IsAvailable = false;
                     }
-                    
+
                 }
             }
-            Application.Run(new LibraryApp(libraryController));
         }
 
     }
